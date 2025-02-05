@@ -327,6 +327,69 @@ const EnhancedWebsite = () => {
         </div>
       </section>
 
+      {/* // Add this section before the contact section in EnhancedWebsite */}
+
+{/* Client Showcase Section */}
+<section className="py-32 bg-gradient-to-b from-gray-900 to-black" aria-label="Our Clients">
+  <div className="container mx-auto px-6">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-bold mb-4">Trusted By Industry Leaders</h2>
+      <p className="text-xl text-gray-400">Delivering excellence to enterprises worldwide</p>
+    </div>
+
+    <div className="grid md:grid-cols-3 gap-8 mb-16">
+      {[
+        {
+          name: 'Global Finance Corp',
+          logo: '/api/placeholder/120/60',
+          industry: 'Banking',
+          project: 'Digital Banking Platform',
+          result: '+45% Efficiency',
+          testimonial: 'Transformed our digital banking infrastructure with state-of-the-art security.'
+        },
+        {
+          name: 'TechCorp Systems',
+          logo: '/api/placeholder/120/60',
+          industry: 'Technology',
+          project: 'AI Analytics Suite',
+          result: '3x Faster Insights',
+          testimonial: 'Their AI solutions revolutionized our data processing capabilities.'
+        },
+        {
+          name: 'MediHealth Group',
+          logo: '/api/placeholder/120/60',
+          industry: 'Healthcare',
+          project: 'Patient Care System',
+          result: '-30% Wait Time',
+          testimonial: 'Significantly improved our patient care workflow and efficiency.'
+        }
+      ].map((client, index) => (
+        <div key={index} className="group bg-gradient-to-b from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700 hover:border-blue-500/50 transition-all duration-300">
+          <img src={client.logo} alt={client.name} className="h-12 mb-6" />
+          <div className="text-sm text-blue-400 mb-2">{client.industry}</div>
+          <h3 className="text-xl font-bold mb-4">{client.name}</h3>
+          <p className="text-gray-300 mb-4">{client.project}</p>
+          <div className="text-green-400 font-bold mb-4">{client.result}</div>
+          <blockquote className="text-sm text-gray-400 italic">
+            "{client.testimonial}"
+          </blockquote>
+        </div>
+      ))}
+    </div>
+
+    <div className="grid md:grid-cols-6 gap-8 items-center opacity-70">
+      {[...Array(6)].map((_, index) => (
+        <img 
+          key={index}
+          src={`/api/placeholder/120/60`}
+          alt={`Partner ${index + 1}`}
+          className="grayscale hover:grayscale-0 transition-all duration-300"
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
       {/* Contact Section */}
       <section id="contact" className="py-32 relative" aria-label="Contact Us">
         <div className="container mx-auto px-6">
