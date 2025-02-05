@@ -328,12 +328,15 @@ const EnhancedWebsite = () => {
    </div>
 
    <div className="flex justify-center">
-     <button className="flex items-center gap-2 px-8 py-4 bg-transparent border border-blue-500/50 rounded-full hover:bg-blue-500/10 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">
-       <span className="flex items-center gap-2">
-         See Projects
-         <ArrowRight className="w-4 h-4" />
-       </span>
-     </button>
+   <button 
+ onClick={() => window.location.href = '/projects'}
+ className="flex items-center gap-2 px-8 py-4 bg-transparent border border-blue-500/50 rounded-full hover:bg-blue-500/10 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+>
+ <span className="flex items-center gap-2">
+   See Projects
+   <ArrowRight className="w-4 h-4" />
+ </span>
+</button>
    </div>
  </div>
 </section>
