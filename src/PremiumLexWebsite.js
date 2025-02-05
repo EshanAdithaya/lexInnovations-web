@@ -236,6 +236,8 @@ const EnhancedWebsite = () => {
               <button className="px-8 py-4 border border-white/20 rounded-full hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">
                 View Case Studies
               </button>
+
+              
             </div>
           </div>
         </div>
@@ -313,19 +315,28 @@ const EnhancedWebsite = () => {
 
       {/* Case Studies Section */}
       <section id="cases" className="py-32" aria-label="Case Studies">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Success Stories</h2>
-            <p className="text-xl text-gray-400">Real results for real businesses</p>
-          </div>
+ <div className="container mx-auto px-6">
+   <div className="text-center mb-20">
+     <h2 className="text-4xl md:text-5xl font-bold mb-4">Success Stories</h2>
+     <p className="text-xl text-gray-400">Real results for real businesses</p>
+   </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {cases.map((case_study, index) => (
-              <CaseStudyCard key={index} {...case_study} />
-            ))}
-          </div>
-        </div>
-      </section>
+   <div className="grid md:grid-cols-2 gap-8 mb-12">
+     {cases.map((case_study, index) => (
+       <CaseStudyCard key={index} {...case_study} />
+     ))}
+   </div>
+
+   <div className="flex justify-center">
+     <button className="flex items-center gap-2 px-8 py-4 bg-transparent border border-blue-500/50 rounded-full hover:bg-blue-500/10 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">
+       <span className="flex items-center gap-2">
+         See Projects
+         <ArrowRight className="w-4 h-4" />
+       </span>
+     </button>
+   </div>
+ </div>
+</section>
 
       {/* // Add this section before the contact section in EnhancedWebsite */}
 
@@ -337,7 +348,7 @@ const EnhancedWebsite = () => {
       <p className="text-xl text-gray-400">Delivering excellence to enterprises worldwide</p>
     </div>
 
-    <div className="grid md:grid-cols-3 gap-8 mb-16">
+    {/* <div className="grid md:grid-cols-3 gap-8 mb-16">
       {[
         {
           name: 'Global Finance Corp',
@@ -375,7 +386,7 @@ const EnhancedWebsite = () => {
           </blockquote>
         </div>
       ))}
-    </div>
+    </div> */}
 
     <div className="grid md:grid-cols-6 gap-8 items-center opacity-70">
       {[...Array(6)].map((_, index) => (
