@@ -1,80 +1,154 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Phone, Mail, MapPin, Globe, Shield, Cpu } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Menu, X, ArrowRight, Phone, Mail, MapPin, Globe, Shield, Cpu, 
+  Check, Users, Code, Zap, ChevronDown, Github, Linkedin, Twitter } from 'lucide-react';
 
-const PremiumLexWebsite = () => {
+// Internal Alert Component
+const Alert = ({ children, className }) => {
+  return (
+    <div className={`bg-blue-900/50 border border-blue-500/50 rounded-lg p-4 ${className}`}>
+      {children}
+    </div>
+  );
+};
+
+const AlertDescription = ({ children }) => {
+  return <div className="text-sm text-gray-300">{children}</div>;
+};
+
+const CaseStudyCard = ({ title, description, tech, image }) => {
+  return (
+    <div className="group relative bg-gradient-to-b from-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300">
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      
+      <img src={image} alt={title} className="w-full h-48 object-cover" />
+      
+      <div className="p-6 space-y-4">
+        <h3 className="text-2xl font-bold">{title}</h3>
+        <p className="text-gray-400">{description}</p>
+        
+        <div className="flex flex-wrap gap-2">
+          {tech.map((item, index) => (
+            <span key={index} className="px-3 py-1 bg-blue-600/20 rounded-full text-sm text-blue-400">
+              {item}
+            </span>
+          ))}
+        </div>
+        
+        <button className="flex items-center gap-2 text-blue-400 group-hover:text-blue-300 transition-colors">
+          View Case Study
+          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const EnhancedWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [activeSection, setActiveSection] = useState('home');
+  const [isNewsletterSuccess, setIsNewsletterSuccess] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY);
-      
-      // Update active section based on scroll position
-      const sections = ['home', 'products', 'clients', 'contact'];
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      
-      if (currentSection) setActiveSection(currentSection);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+  const handleScroll = useCallback(() => {
+    const position = window.scrollY;
+    setScrollPosition(position);
+    
+    const sections = ['home', 'solutions', 'process', 'cases', 'contact'];
+    const currentSection = sections.find(section => {
+      const element = document.getElementById(section);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        return rect.top <= 100 && rect.bottom >= 100;
+      }
+      return false;
+    });
+    
+    if (currentSection) setActiveSection(currentSection);
   }, []);
 
-  const products = [
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
+
+  const solutions = [
     {
-      title: "Enterprise AI",
-      description: "Transform your business with cutting-edge AI solutions",
+      title: "Custom Software Development",
+      description: "Tailored solutions that perfectly align with your business needs",
+      icon: <Code className="w-12 h-12" />,
+      features: ["Microservices Architecture", "Cloud-Native", "CI/CD Integration"]
+    },
+    {
+      title: "Enterprise AI Solutions",
+      description: "Harness the power of AI to drive business transformation",
       icon: <Cpu className="w-12 h-12" />,
-      stats: ["99.9% Uptime", "24/7 Support", "Enterprise-grade"]
+      features: ["Machine Learning", "NLP", "Predictive Analytics"]
     },
     {
       title: "Cloud Infrastructure",
-      description: "Scalable, secure, and reliable cloud solutions",
+      description: "Scalable and secure cloud solutions for modern enterprises",
       icon: <Globe className="w-12 h-12" />,
-      stats: ["Global CDN", "Auto-scaling", "Multi-region"]
-    },
-    {
-      title: "Cyber Security",
-      description: "Advanced protection for your digital assets",
-      icon: <Shield className="w-12 h-12" />,
-      stats: ["ISO 27001", "Zero Trust", "Real-time Monitor"]
+      features: ["Multi-Cloud", "DevOps", "Security First"]
     }
   ];
 
-  const stats = [
-    { value: "98%", label: "Client Satisfaction" },
-    { value: "250+", label: "Projects Delivered" },
-    { value: "24/7", label: "Support Available" },
-    { value: "15+", label: "Years Experience" }
+  const processes = [
+    {
+      title: "Discovery",
+      description: "We dive deep to understand your business needs and objectives",
+      icon: <Users className="w-8 h-8" />
+    },
+    {
+      title: "Design & Architecture",
+      description: "Creating scalable solutions with future-proof architecture",
+      icon: <Code className="w-8 h-8" />
+    },
+    {
+      title: "Development & Testing",
+      description: "Agile development with continuous testing and integration",
+      icon: <Zap className="w-8 h-8" />
+    },
+    {
+      title: "Deployment & Support",
+      description: "Smooth deployment and ongoing technical support",
+      icon: <Shield className="w-8 h-8" />
+    }
+  ];
+
+  const cases = [
+    {
+      title: "AI-Powered Analytics Platform",
+      description: "Helped a Fortune 500 company increase efficiency by 40%",
+      tech: ["React", "Python", "AWS", "TensorFlow"],
+      image: "/api/placeholder/400/300"
+    },
+    {
+      title: "Cloud Migration Project",
+      description: "Successful migration of legacy systems to microservices",
+      tech: ["Kubernetes", "Docker", "Azure", "Node.js"],
+      image: "/api/placeholder/400/300"
+    }
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
       {/* Navigation */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${
-        scrollPosition > 50 ? 'bg-black/90 backdrop-blur-lg py-4' : 'bg-transparent py-6'
+        scrollPosition > 50 ? 'bg-gray-900/90 backdrop-blur-lg py-4' : 'bg-transparent py-6'
       }`}>
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-12">
-              <div className="relative group">
-                <img src="/api/placeholder/40/40" alt="Logo" className="h-10 transition-transform duration-300 group-hover:scale-110" />
-                <div className="absolute -inset-2 bg-blue-500/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-              <div className="hidden md:flex gap-8">
-                {['Products', 'Clients', 'About', 'Contact'].map((item) => (
+              <a href="#home" className="relative group" aria-label="Home">
+                <img src="/api/placeholder/40/40" alt="Company Logo" className="h-10 transition-transform duration-300 group-hover:scale-110" />
+              </a>
+              
+              <nav className="hidden md:flex gap-8" aria-label="Main navigation">
+                {['Solutions', 'Process', 'Cases', 'Contact'].map((item) => (
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
-                    className={`relative text-sm font-medium transition-colors
+                    className={`relative text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg
                       ${activeSection === item.toLowerCase() ? 'text-blue-400' : 'text-gray-300 hover:text-white'}
                     `}
                   >
@@ -84,16 +158,24 @@ const PremiumLexWebsite = () => {
                     />
                   </a>
                 ))}
-              </div>
+              </nav>
             </div>
             
-            <button className="hidden md:flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-400 px-6 py-2 rounded-full 
-              hover:translate-y-[-2px] hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300">
+            <button 
+              className="hidden md:flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-400 px-6 py-2 rounded-full
+                hover:translate-y-[-2px] hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label="Start Project"
+            >
               Start Project
               <ArrowRight className="w-4 h-4" />
             </button>
 
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden">
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg p-2"
+              aria-expanded={isMenuOpen}
+              aria-label="Toggle menu"
+            >
               {isMenuOpen ? <X /> : <Menu />}
             </button>
           </div>
@@ -101,19 +183,19 @@ const PremiumLexWebsite = () => {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute w-full bg-black">
+          <div className="md:hidden absolute w-full bg-gray-900 border-t border-gray-800" role="dialog" aria-label="Mobile menu">
             <div className="px-6 py-4 space-y-4">
-              {['Products', 'Clients', 'About', 'Contact'].map((item) => (
+              {['Solutions', 'Process', 'Cases', 'Contact'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="block text-gray-300 hover:text-white"
+                  className="block text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg p-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item}
                 </a>
               ))}
-              <button className="w-full bg-blue-600 px-6 py-2 rounded-full hover:bg-blue-700">
+              <button className="w-full bg-blue-600 px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
                 Start Project
               </button>
             </div>
@@ -122,76 +204,76 @@ const PremiumLexWebsite = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center pt-20">
+      <section id="home" className="relative min-h-screen flex items-center pt-20" aria-label="Welcome">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 to-purple-900/50" />
           <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black to-transparent" />
         </div>
 
         <div className="container mx-auto px-6 relative">
-          <div className="max-w-4xl space-y-8 opacity-0 animate-fade-in">
-            <h1 className="text-7xl font-bold leading-tight">
+          <div className="max-w-4xl space-y-8 animate-fade-in">
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-                Elevating Digital
+                Building Tomorrow's
               </span>
               <br />
-              Experiences
+              Software Today
             </h1>
             
-            <p className="text-2xl text-gray-300 max-w-2xl">
-              We craft exceptional software solutions that drive innovation and business growth
+            <p className="text-xl md:text-2xl text-gray-300 max-w-2xl">
+              Enterprise-grade software solutions that drive innovation and accelerate digital transformation
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <button className="group relative px-8 py-4 bg-blue-600 rounded-full overflow-hidden">
+              <button className="group relative px-8 py-4 bg-blue-600 rounded-full overflow-hidden focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <span className="relative z-10 flex items-center gap-2">
-                  Explore Solutions
+                  Schedule Consultation
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
               </button>
 
-              <button className="px-8 py-4 border border-white/20 rounded-full hover:bg-white/10 transition-colors">
-                Learn More
+              <button className="px-8 py-4 border border-white/20 rounded-full hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">
+                View Case Studies
               </button>
             </div>
           </div>
         </div>
-
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ArrowRight className="w-6 h-6 rotate-90" />
-        </div>
       </section>
 
-      {/* Products Section */}
-      <section id="products" className="py-32 relative">
+      {/* Solutions Section */}
+      <section id="solutions" className="py-32 relative" aria-label="Our Solutions">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20 space-y-4">
-            <h2 className="text-5xl font-bold">Our Solutions</h2>
-            <p className="text-xl text-gray-400">Enterprise-grade software for modern businesses</p>
+            <h2 className="text-4xl md:text-5xl font-bold">Enterprise Solutions</h2>
+            <p className="text-xl text-gray-400">Transforming businesses through technology</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {products.map((product, index) => (
-              <div key={index} className="group relative bg-gradient-to-b from-gray-900 to-black p-8 rounded-2xl border border-gray-800
-                hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105">
+            {solutions.map((solution, index) => (
+              <div 
+                key={index}
+                className="group relative bg-gradient-to-b from-gray-900 to-black p-8 rounded-2xl border border-gray-800
+                  hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105"
+                tabIndex={0}
+              >
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
                 
                 <div className="relative space-y-6">
-                  <div className="text-blue-400">{product.icon}</div>
-                  <h3 className="text-2xl font-bold">{product.title}</h3>
-                  <p className="text-gray-400">{product.description}</p>
+                  <div className="text-blue-400">{solution.icon}</div>
+                  <h3 className="text-2xl font-bold">{solution.title}</h3>
+                  <p className="text-gray-400">{solution.description}</p>
                   
                   <div className="space-y-2">
-                    {product.stats.map((stat, idx) => (
+                    {solution.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-2 text-sm text-gray-400">
-                        <div className="w-1 h-1 bg-blue-400 rounded-full" />
-                        {stat}
+                        <Check className="w-4 h-4 text-blue-400" />
+                        {feature}
                       </div>
                     ))}
                   </div>
 
-                  <button className="flex items-center gap-2 text-blue-400 group-hover:text-blue-300 transition-colors">
+                  <button className="flex items-center gap-2 text-blue-400 group-hover:text-blue-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg p-2">
                     Learn more 
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </button>
@@ -202,72 +284,163 @@ const PremiumLexWebsite = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-24 bg-gradient-to-b from-black to-gray-900">
+      {/* Process Section */}
+      <section id="process" className="py-24 bg-gradient-to-b from-gray-900 to-black" aria-label="Our Process">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 
-                  group-hover:scale-110 transition-transform duration-300">
-                  {stat.value}
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">How We Work</h2>
+            <p className="text-xl text-gray-400">A proven approach to software development</p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            {processes.map((process, index) => (
+              <div key={index} className="relative">
+                <div className="flex flex-col items-center text-center space-y-4">
+                  <div className="w-16 h-16 rounded-full bg-blue-600/20 flex items-center justify-center">
+                    {process.icon}
+                  </div>
+                  <h3 className="text-xl font-bold">{process.title}</h3>
+                  <p className="text-gray-400">{process.description}</p>
                 </div>
-                <div className="text-gray-400 mt-2">{stat.label}</div>
+                {index < processes.length - 1 && (
+                  <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-blue-600/50 to-transparent" />
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-32 relative">
+      {/* Case Studies Section */}
+      <section id="cases" className="py-32" aria-label="Case Studies">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-5xl font-bold">Let's Build Together</h2>
-            <p className="text-xl text-gray-400">Transform your ideas into reality with our expert team</p>
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Success Stories</h2>
+            <p className="text-xl text-gray-400">Real results for real businesses</p>
+          </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                { icon: <Phone />, text: "078-6859581" },
-                { icon: <Mail />, text: "contact@lexinnovations.com" },
-                { icon: <MapPin />, text: "Your Location" }
-              ].map((item, index) => (
-                <div key={index} className="group bg-gradient-to-b from-gray-900 to-black p-8 rounded-2xl border border-gray-800
-                  hover:border-blue-500/50 transition-all duration-300">
-                  <div className="text-blue-400 mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {item.icon}
-                  </div>
-                  <p className="text-gray-300">{item.text}</p>
-                </div>
-              ))}
+          <div className="grid md:grid-cols-2 gap-8">
+            {cases.map((case_study, index) => (
+              <CaseStudyCard key={index} {...case_study} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-32 relative" aria-label="Contact Us">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">Start Your Project</h2>
+              <p className="text-xl text-gray-400">Let's discuss how we can help transform your business</p>
             </div>
 
-            <button className="mt-12 group relative px-12 py-4 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full 
-              hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300">
-              <span className="flex items-center gap-2">
-                Start Your Project
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </span>
-            </button>
+            <form className="mt-12 space-y-8 p-8 bg-gray-900/50 rounded-2xl border border-gray-800">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="block text-sm font-medium">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="email" className="block text-sm font-medium">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="message" className="block text-sm font-medium">Project Details</label>
+                <textarea
+                  id="message"
+                  rows={4}
+                  className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full
+                  hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                Send Message
+              </button>
+            </form>
+
+            {isNewsletterSuccess && (
+              <Alert className="mt-4">
+                <AlertDescription>
+                  Thanks for reaching out! We'll get back to you soon.
+                </AlertDescription>
+              </Alert>
+            )}
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-gray-800">
+      <footer className="py-12 border-t border-gray-800" aria-label="Footer">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-8">
-              <img src="/api/placeholder/40/40" alt="Logo" className="h-10" />
-              <div className="flex gap-6">
-                {['Instagram', 'Facebook', 'WhatsApp'].map((social) => (
-                  <a key={social} href="#" className="text-gray-400 hover:text-white transition-colors">
-                    {social}
-                  </a>
+          <div className="grid md:grid-cols-4 gap-12">
+            <div className="space-y-4">
+              <img src="/api/placeholder/40/40" alt="Company Logo" className="h-10" />
+              <p className="text-gray-400">Building tomorrow's software solutions with cutting-edge technology and expertise.</p>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Solutions</h3>
+              <ul className="space-y-2">
+                {['Custom Development', 'Enterprise AI', 'Cloud Services', 'DevOps'].map((item) => (
+                  <li key={item}>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors">{item}</a>
+                  </li>
                 ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Company</h3>
+              <ul className="space-y-2">
+                {['About Us', 'Careers', 'Blog', 'Contact'].map((item) => (
+                  <li key={item}>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors">{item}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Connect</h3>
+              <div className="flex space-x-4">
+                <a href="#" aria-label="GitHub" className="text-gray-400 hover:text-white transition-colors">
+                  <Github className="w-6 h-6" />
+                </a>
+                <a href="#" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors">
+                  <Linkedin className="w-6 h-6" />
+                </a>
+                <a href="#" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors">
+                  <Twitter className="w-6 h-6" />
+                </a>
               </div>
             </div>
-            <p className="text-gray-400">© 2025 Lex Innovations. All rights reserved.</p>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-400">© 2025 Your Company. All rights reserved.</p>
+            <div className="flex gap-6">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+            </div>
           </div>
         </div>
       </footer>
@@ -275,4 +448,4 @@ const PremiumLexWebsite = () => {
   );
 };
 
-export default PremiumLexWebsite;
+export default EnhancedWebsite;
