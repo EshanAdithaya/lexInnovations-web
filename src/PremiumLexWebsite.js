@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Menu, X, ArrowRight, Phone, Mail, MapPin, Globe, Shield, Cpu, 
+import { Menu, X, ArrowRight, ArrowUp, Phone, Mail, MapPin, Globe, Shield, Cpu, 
   Check, Users, Code, Zap, ChevronDown, Github, Linkedin, Twitter } from 'lucide-react';
 
 // Internal Alert Component
@@ -54,6 +54,7 @@ const EnhancedWebsite = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -102,6 +103,7 @@ const EnhancedWebsite = () => {
   const handleScroll = useCallback(() => {
     const position = window.scrollY;
     setScrollPosition(position);
+    setShowScrollToTop(position > 100); // Show button when scrolled down
     
     const sections = ['home', 'solutions', 'process', 'cases', 'contact'];
     const currentSection = sections.find(section => {
@@ -115,6 +117,10 @@ const EnhancedWebsite = () => {
     
     if (currentSection) setActiveSection(currentSection);
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -262,6 +268,17 @@ const EnhancedWebsite = () => {
           </div>
         )}
       </nav>
+
+      {/* Scroll to Top Button */}
+      {showScrollToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-4 right-4 p-3 bg-blue-600 rounded-full shadow-lg hover:bg-blue-700 transition-colors"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-6 h-6 text-white" />
+        </button>
+      )}
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center pt-20" aria-label="Welcome">
@@ -523,7 +540,7 @@ const EnhancedWebsite = () => {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-12">
             <div className="space-y-4">
-              <img src="/api/placeholder/40/40" alt="Company Logo" className="h-10" />
+              <img src="https://pawsome-testing.sgp1.digitaloceanspaces.com/ac121b9e-5ffb-45d3-b26b-0a83cd804ef7-lex__1_-removebg-preview.png" alt="Company Logo" className="h-10" />
               <p className="text-gray-400">Building tomorrow's software solutions with cutting-edge technology and expertise.</p>
             </div>
             
@@ -566,7 +583,7 @@ const EnhancedWebsite = () => {
           </div>
 
           <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400">© 2025 Your Company. All rights reserved.</p>
+            <p className="text-gray-400">© 2025 LEX INNOVATION. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>

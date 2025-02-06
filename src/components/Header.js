@@ -51,7 +51,7 @@ const Navigation = () => {
        <div className="flex justify-between items-center">
          <div className="flex items-center gap-12">
            <a href="#home" className="relative group" aria-label="Home">
-             <img src="/api/placeholder/40/40" alt="Company Logo" className="h-10 transition-transform duration-300 group-hover:scale-110" />
+             <img src="https://pawsome-testing.sgp1.digitaloceanspaces.com/ac121b9e-5ffb-45d3-b26b-0a83cd804ef7-lex__1_-removebg-preview.png" alt="Company Logo" className="h-10 transition-transform duration-300 group-hover:scale-110" />
            </a>
            
            <nav className="hidden md:flex gap-8" aria-label="Main navigation">
