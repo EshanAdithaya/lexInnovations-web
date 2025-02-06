@@ -25,13 +25,30 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Solutions</h3>
             <ul className="space-y-2">
-              {solutions.map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    {item}
-                  </a>
+                  {solutions.map((item, index) => {
+                let href;
+                switch (item) {
+                  case 'Custom Development':
+                    href = '/customdevelopment';
+                    break;
+                  case 'Enterprise AI':
+                    href = '/enterpriceai';
+                    break;
+                  case 'Cloud Services':
+                    href = '/cloudservice';
+                    break;
+                  case 'DevOps':
+                    href = '/devops';
+                    break;
+                }
+                return (
+                  <li key={index}>
+                    <a href={href} className="text-gray-400 hover:text-white transition-colors">
+                      {item}
+                    </a>
                 </li>
-              ))}
+              );
+            })}
             </ul>
           </div>
 
