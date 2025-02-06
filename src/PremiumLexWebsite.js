@@ -48,6 +48,56 @@ const EnhancedWebsite = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [activeSection, setActiveSection] = useState('home');
   const [isNewsletterSuccess, setIsNewsletterSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://pawsome.soluzent.com/api/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: ['eshangunathilaka10@gmail.com'],
+          subject: `New Contact Form Submission from ${formData.name} (Lex website)`,
+          htmlContent: `
+            <h1>New Contact Form Submission</h1>
+            <p><strong>Name:</strong> ${formData.name}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>Message:</strong> ${formData.message}</p>
+          `
+        })
+      });
+
+      if (response.status === 201) {
+        setIsNewsletterSuccess(true);
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
 
   const handleScroll = useCallback(() => {
     const position = window.scrollY;
@@ -70,6 +120,12 @@ const EnhancedWebsite = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    contactSection?.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
 
   const solutions = [
     {
@@ -162,6 +218,7 @@ const EnhancedWebsite = () => {
             </div>
             
             <button 
+              onClick={scrollToContact}
               className="hidden md:flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-400 px-6 py-2 rounded-full
                 hover:translate-y-[-2px] hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               aria-label="Start Project"
@@ -195,7 +252,10 @@ const EnhancedWebsite = () => {
                   {item}
                 </a>
               ))}
-              <button className="w-full bg-blue-600 px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
+              <button 
+                onClick={scrollToContact}
+                className="w-full bg-blue-600 px-6 py-2 rounded-full hover:bg-blue-700 transition-colors"
+              >
                 Start Project
               </button>
             </div>
@@ -395,13 +455,18 @@ const EnhancedWebsite = () => {
               <p className="text-xl text-gray-400">Let's discuss how we can help transform your business</p>
             </div>
 
-            <form className="mt-12 space-y-8 p-8 bg-gray-900/50 rounded-2xl border border-gray-800">
+            <form 
+              onSubmit={handleFormSubmit} 
+              className="mt-12 space-y-8 p-8 bg-gray-900/50 rounded-2xl border border-gray-800"
+            >
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="block text-sm font-medium">Name</label>
                   <input
                     type="text"
                     id="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
                     required
                   />
@@ -411,6 +476,8 @@ const EnhancedWebsite = () => {
                   <input
                     type="email"
                     id="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
                     required
                   />
@@ -422,6 +489,8 @@ const EnhancedWebsite = () => {
                 <textarea
                   id="message"
                   rows={4}
+                  value={formData.message}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
                   required
                 />
@@ -429,10 +498,12 @@ const EnhancedWebsite = () => {
 
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full
-                  hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500
+                  disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
 
