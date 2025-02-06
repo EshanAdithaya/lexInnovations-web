@@ -336,11 +336,11 @@ const EnhancedWebsite = () => {
 
    <div className="flex justify-center">
    <button 
- onClick={() => window.location.href = '/projects'}
+ onClick={() => window.location.href = '#'}
  className="flex items-center gap-2 px-8 py-4 bg-transparent border border-blue-500/50 rounded-full hover:bg-blue-500/10 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
 >
  <span className="flex items-center gap-2">
-   See Projects
+   See Projects (this feature is not available at the moment)
    <ArrowRight className="w-4 h-4" />
  </span>
 </button>
