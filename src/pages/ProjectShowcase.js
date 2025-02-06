@@ -15,26 +15,26 @@ const ProjectShowcase = () => {
   const projects = [
     {
       id: 1,
-      title: 'Enterprise Resource Management',
-      description: 'Cloud-based ERP system with real-time analytics and AI-powered forecasting',
-      image: '/api/placeholder/600/400',
-      category: ['web', 'ai'],
-      tech: ['React', 'Node.js', 'TensorFlow', 'AWS'],
+      title: 'Shradda IVR System',
+      description: 'Sri Lanka Mobitel ISP based Customized IVR System',
+      image: 'https://pawsome-testing.sgp1.digitaloceanspaces.com/f52624b0-63f3-4c4f-95d3-534e2bc02c20-WhatsApp_Image_2025-01-05_at_22.47.44_427d31e1-removebg-preview.png',
+      category: ['web', 'IVR'],
+      tech: ['React', 'DigitalOrcen', 'nest js', 'Mysql', 'nginx'],
       features: [
-        'Real-time data processing',
-        'AI-powered forecasting',
-        'Multi-tenant architecture',
+        'Custom Audio track upload',
+        'payment system for GSM call subscription',
+        'Admin Dashboard for schedule audios',
         'Advanced analytics dashboard'
       ],
       results: {
-        efficiency: '+45%',
-        cost: '-30%',
-        users: '10,000+'
+        // efficiency: '+45%',
+        // cost: '-30%',
+        // users: '10,000+'
       },
       links: {
-        case_study: '#',
-        github: '#',
-        live: '#'
+        // case_study: '#',
+        // github: '#',
+        // live: '#'
       }
     },
     {
