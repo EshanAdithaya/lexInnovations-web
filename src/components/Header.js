@@ -31,18 +31,30 @@ const Navigation = () => {
 
   const navItems = ['Solutions', 'Process', 'Cases', 'Contact'];
 
-  const NavLink = ({ item }) => (
-    <a
-      href={`#${item.toLowerCase()}`}
-      className={`relative text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg
-        ${activeSection === item.toLowerCase() ? 'text-blue-400' : 'text-gray-300 hover:text-white'}`}
-    >
-      {item}
-      <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 transform origin-left transition-transform duration-300
-        ${activeSection === item.toLowerCase() ? 'scale-x-100' : 'scale-x-0'}`} 
-      />
-    </a>
-  );
+  const NavLink = ({ item }) => {
+    const handleClick = (e) => {
+      e.preventDefault();
+      if (window.location.pathname !== '/') {
+        navigate('/', { state: { target: `#${item.toLowerCase()}` } });
+      } else {
+        document.getElementById(item.toLowerCase()).scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    return (
+      <a
+        href={`#${item.toLowerCase()}`}
+        onClick={handleClick}
+        className={`relative text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg
+          ${activeSection === item.toLowerCase() ? 'text-blue-400' : 'text-gray-300 hover:text-white'}`}
+      >
+        {item}
+        <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 transform origin-left transition-transform duration-300
+          ${activeSection === item.toLowerCase() ? 'scale-x-100' : 'scale-x-0'}`} 
+        />
+      </a>
+    );
+  };
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${

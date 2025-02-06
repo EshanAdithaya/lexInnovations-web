@@ -1,5 +1,7 @@
 import React from 'react';
 import { Users, Building, Award, Cpu, Check, ArrowUpRight, MapPin, Github, Linkedin, Mail } from 'lucide-react';
+import Footer from '../components/Footer';
+import Navigation from '../components/Header';
 
 const AboutUs = () => {
   const stats = [
@@ -137,6 +139,7 @@ const AboutUs = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
+      <Navigation />
       {/* Hero Section */}
       <section className="relative py-20">
         <div className="container mx-auto px-6">
@@ -295,6 +298,7 @@ const AboutUs = () => {
           </button>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

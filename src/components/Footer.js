@@ -39,13 +39,30 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
-              {company.map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              {company.map((item, index) => {
+                let href;
+                switch (item) {
+                  case 'About Us':
+                    href = '/aboutus';
+                    break;
+                  case 'Careers':
+                    href = '/career';
+                    break;
+                  case 'Blog':
+                    href = '/blog';
+                    break;
+                  case 'Contact':
+                    href = '/contact';
+                    break;
+                }
+                return (
+                  <li key={index}>
+                    <a href={href} className="text-gray-400 hover:text-white transition-colors">
+                      {item}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

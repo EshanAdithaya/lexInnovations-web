@@ -1,7 +1,7 @@
 import React from 'react';
 import { FileText, Mail } from 'lucide-react';
-import Footer from './components/Footer';
-import Navigation from './components/Header';
+import Footer from '../components/Footer';
+import Navigation from '../components/Header';
 
 const TermsOfService = () => {
   const sections = [
