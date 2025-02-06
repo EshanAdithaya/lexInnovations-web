@@ -181,16 +181,16 @@ const EnhancedWebsite = () => {
 
   const cases = [
     {
-      title: "AI-Powered Analytics Platform",
-      description: "Helped a Fortune 500 company increase efficiency by 40%",
-      tech: ["React", "Python", "AWS", "TensorFlow"],
-      image: "/api/placeholder/400/300"
+      title: "Smart Call Management Syatem",
+      description: "New service for Shradda tv IVR Project",
+      tech: ["React", "nest", "DigitalOrcen", "Tailwind"],
+      image: "https://pawsome-testing.sgp1.digitaloceanspaces.com/f52624b0-63f3-4c4f-95d3-534e2bc02c20-WhatsApp_Image_2025-01-05_at_22.47.44_427d31e1-removebg-preview.png"
     },
     {
       title: "Cloud Migration Project",
       description: "Successful migration of legacy systems to microservices",
-      tech: ["Kubernetes", "Docker", "Azure", "Node.js"],
-      image: "/api/placeholder/400/300"
+      tech: ["React", "PM2", "DigitalOrcen", "Nest", "NGINX"],
+      image: "https://pawsome-testing.sgp1.digitaloceanspaces.com/ad28dc95-76c0-4f87-9653-282ba749f11c-image-removebg-preview%20%282%29.png"
     }
   ];
 
