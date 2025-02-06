@@ -140,7 +140,7 @@ const EnhancedWebsite = () => {
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-12">
               <a href="#home" className="relative group" aria-label="Home">
-                <img src="/api/placeholder/40/40" alt="Company Logo" className="h-10 transition-transform duration-300 group-hover:scale-110" />
+                <img src="https://pawsome-testing.sgp1.digitaloceanspaces.com/ac121b9e-5ffb-45d3-b26b-0a83cd804ef7-lex__1_-removebg-preview.png" alt="Company Logo" className="h-10 transition-transform duration-300 group-hover:scale-110" />
               </a>
               
               <nav className="hidden md:flex gap-8" aria-label="Main navigation">
@@ -345,61 +345,43 @@ const EnhancedWebsite = () => {
 
 {/* Client Showcase Section */}
 <section className="py-32 bg-gradient-to-b from-gray-900 to-black" aria-label="Our Clients">
-  <div className="container mx-auto px-6">
+  <div className="container mx-auto px-6 items-center">
     <div className="text-center mb-16">
       <h2 className="text-4xl md:text-5xl font-bold mb-4">Trusted By Industry Leaders</h2>
       <p className="text-xl text-gray-400">Delivering excellence to enterprises worldwide</p>
     </div>
 
-    {/* <div className="grid md:grid-cols-3 gap-8 mb-16">
-      {[
-        {
-          name: 'Global Finance Corp',
-          logo: '/api/placeholder/120/60',
-          industry: 'Banking',
-          project: 'Digital Banking Platform',
-          result: '+45% Efficiency',
-          testimonial: 'Transformed our digital banking infrastructure with state-of-the-art security.'
-        },
-        {
-          name: 'TechCorp Systems',
-          logo: '/api/placeholder/120/60',
-          industry: 'Technology',
-          project: 'AI Analytics Suite',
-          result: '3x Faster Insights',
-          testimonial: 'Their AI solutions revolutionized our data processing capabilities.'
-        },
-        {
-          name: 'MediHealth Group',
-          logo: '/api/placeholder/120/60',
-          industry: 'Healthcare',
-          project: 'Patient Care System',
-          result: '-30% Wait Time',
-          testimonial: 'Significantly improved our patient care workflow and efficiency.'
-        }
-      ].map((client, index) => (
-        <div key={index} className="group bg-gradient-to-b from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700 hover:border-blue-500/50 transition-all duration-300">
-          <img src={client.logo} alt={client.name} className="h-12 mb-6" />
-          <div className="text-sm text-blue-400 mb-2">{client.industry}</div>
-          <h3 className="text-xl font-bold mb-4">{client.name}</h3>
-          <p className="text-gray-300 mb-4">{client.project}</p>
-          <div className="text-green-400 font-bold mb-4">{client.result}</div>
-          <blockquote className="text-sm text-gray-400 italic">
-            "{client.testimonial}"
-          </blockquote>
-        </div>
-      ))}
-    </div> */}
-
     <div className="grid md:grid-cols-6 gap-8 items-center opacity-70">
-      {[...Array(6)].map((_, index) => (
+      
         <img 
-          key={index}
-          src={`/api/placeholder/120/60`}
-          alt={`Partner ${index + 1}`}
-          className="grayscale hover:grayscale-0 transition-all duration-300"
+          src={`https://pawsome-testing.sgp1.digitaloceanspaces.com/f52624b0-63f3-4c4f-95d3-534e2bc02c20-WhatsApp_Image_2025-01-05_at_22.47.44_427d31e1-removebg-preview.png`}
+          alt={`Shradda TV `}
         />
-      ))}
+        <img 
+          src={`https://soluzent-marketing-devtesting.netlify.app/static/media/logofull.fdf42ac8212d0c2fda0d.png`}
+          alt={`Soluzent`}
+        />
+        <img 
+          src={`https://pawsome-testing.sgp1.digitaloceanspaces.com/21a84bff-7755-434c-9277-9564b3efeeff-cryste%202%20new.png`}
+          alt={`Soluzent`}
+        />
+        <img 
+          src={`https://scontent.fcmb11-2.fna.fbcdn.net/v/t39.30808-6/419906915_754098016740880_4515120405518843629_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHzc37o3qp-TLn_0pSazQ4O3yKIKPhodmvfIogo-Gh2awCQ84pmxcGs1bGYJCysnDKdxBe5rf3wS3hGVLZBkNq6&_nc_ohc=08AE1gnN1cIQ7kNvgEc6rQC&_nc_zt=23&_nc_ht=scontent.fcmb11-2.fna&_nc_gid=AJ_p9YleO5wi5o60bXgNvn3&oh=00_AYARtYyY72edSbbb96qhSBazM_SyREATUZmagldC472ZZg&oe=67AA083D`}
+          alt={`Soluzent`}
+        />
+        <img 
+          src={`https://pawsome-testing.sgp1.digitaloceanspaces.com/480b13a9-47ac-4a3e-8cee-e018495cc56e-logo-removebg-preview.png`}
+          alt={`Soluzent`}
+        />
+        <img 
+          src={`https://pawsome-testing.sgp1.digitaloceanspaces.com/ad28dc95-76c0-4f87-9653-282ba749f11c-image-removebg-preview%20%282%29.png`}
+          alt={`Soluzent`}
+        />
+        <img 
+          src={`https://ceylon99.com/img/logos/logo-inner.png`}
+          alt={`Soluzent`}
+        />
+      
     </div>
   </div>
 </section>
