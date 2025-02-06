@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PremiumLexWebsite from './PremiumLexWebsite';
 import ProjectShowcase from './ProjectShowcase';
 import AboutUs from './AboutUs';
+import TermsOfService from './TermsOfService';
+import PrivacyPolicy from './PrivacyPolicy';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <Route path="/" element={<PremiumLexWebsite />} />
         <Route path="/projects" element={<ProjectShowcase />} />
         <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/termsofservice" element={<TermsOfService />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
       </Routes>
     </Router>
   );

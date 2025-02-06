@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Menu, X, ArrowRight, ArrowUp, Phone, Mail, MapPin, Globe, Shield, Cpu, 
   Check, Users, Code, Zap, ChevronDown, Github, Linkedin, Twitter } from 'lucide-react';
+import Footer from './components/Footer';
+import Navigation from './components/Header';
 
 // Internal Alert Component
 const Alert = ({ children, className }) => {
@@ -195,79 +197,7 @@ const EnhancedWebsite = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
       {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${
-        scrollPosition > 50 ? 'bg-gray-900/90 backdrop-blur-lg py-4' : 'bg-transparent py-6'
-      }`}>
-        <div className="container mx-auto px-6">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-12">
-              <a href="#home" className="relative group" aria-label="Home">
-                <img src="https://pawsome-testing.sgp1.digitaloceanspaces.com/ac121b9e-5ffb-45d3-b26b-0a83cd804ef7-lex__1_-removebg-preview.png" alt="Company Logo" className="h-10 transition-transform duration-300 group-hover:scale-110" />
-              </a>
-              
-              <nav className="hidden md:flex gap-8" aria-label="Main navigation">
-                {['Solutions', 'Process', 'Cases', 'Contact'].map((item) => (
-                  <a
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
-                    className={`relative text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg
-                      ${activeSection === item.toLowerCase() ? 'text-blue-400' : 'text-gray-300 hover:text-white'}
-                    `}
-                  >
-                    {item}
-                    <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 transform origin-left transition-transform duration-300
-                      ${activeSection === item.toLowerCase() ? 'scale-x-100' : 'scale-x-0'}`} 
-                    />
-                  </a>
-                ))}
-              </nav>
-            </div>
-            
-            <button 
-              onClick={scrollToContact}
-              className="hidden md:flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-400 px-6 py-2 rounded-full
-                hover:translate-y-[-2px] hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              aria-label="Start Project"
-            >
-              Start Project
-              <ArrowRight className="w-4 h-4" />
-            </button>
-
-            <button 
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg p-2"
-              aria-expanded={isMenuOpen}
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X /> : <Menu />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile menu */}
-        {isMenuOpen && (
-          <div className="md:hidden absolute w-full bg-gray-900 border-t border-gray-800" role="dialog" aria-label="Mobile menu">
-            <div className="px-6 py-4 space-y-4">
-              {['Solutions', 'Process', 'Cases', 'Contact'].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="block text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg p-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              ))}
-              <button 
-                onClick={scrollToContact}
-                className="w-full bg-blue-600 px-6 py-2 rounded-full hover:bg-blue-700 transition-colors"
-              >
-                Start Project
-              </button>
-            </div>
-          </div>
-        )}
-      </nav>
+<Navigation />
 
       {/* Scroll to Top Button */}
       {showScrollToTop && (
@@ -536,61 +466,7 @@ const EnhancedWebsite = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-gray-800" aria-label="Footer">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-12">
-            <div className="space-y-4">
-              <img src="https://pawsome-testing.sgp1.digitaloceanspaces.com/ac121b9e-5ffb-45d3-b26b-0a83cd804ef7-lex__1_-removebg-preview.png" alt="Company Logo" className="h-10" />
-              <p className="text-gray-400">Building tomorrow's software solutions with cutting-edge technology and expertise.</p>
-            </div>
-            
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Solutions</h3>
-              <ul className="space-y-2">
-                {['Custom Development', 'Enterprise AI', 'Cloud Services', 'DevOps'].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">{item}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Company</h3>
-              <ul className="space-y-2">
-                {['About Us', 'Careers', 'Blog', 'Contact'].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">{item}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Connect</h3>
-              <div className="flex space-x-4">
-                <a href="#" aria-label="GitHub" className="text-gray-400 hover:text-white transition-colors">
-                  <Github className="w-6 h-6" />
-                </a>
-                <a href="#" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors">
-                  <Linkedin className="w-6 h-6" />
-                </a>
-                <a href="#" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors">
-                  <Twitter className="w-6 h-6" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400">© 2025 LEX INNOVATION. All rights reserved.</p>
-            <div className="flex gap-6">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+    <Footer />
     </div>
   );
 };
