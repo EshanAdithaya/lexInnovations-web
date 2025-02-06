@@ -36,10 +36,10 @@ const CaseStudyCard = ({ title, description, tech, image }) => {
           ))}
         </div>
         
-        <button className="flex items-center gap-2 text-blue-400 group-hover:text-blue-300 transition-colors">
+        {/* <button className="flex items-center gap-2 text-blue-400 group-hover:text-blue-300 transition-colors">
           View Case Study
           <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-        </button>
+        </button> */}
       </div>
     </div>
   );
