@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Users, Building, Award, Cpu, Check, ArrowUpRight, MapPin, Github, Linkedin, Mail } from 'lucide-react';
 import Footer from '../components/Footer';
 import Navigation from '../components/Header';
 
 const AboutUs = () => {
+  const [loading, setLoading] = useState(true);
+  const [imagesLoaded, setImagesLoaded] = useState(0);
+  const [totalImages, setTotalImages] = useState(0);
+
   const stats = [
     { value: '2+', label: 'Years Experience' },
     { value: '25+', label: 'Projects Delivered' },
@@ -172,8 +176,73 @@ const AboutUs = () => {
     }
   ];
 
+  useEffect(() => {
+    // Count all image sources from team members and clients
+    const teamImages = teamMembers.map(member => member.image).filter(src => src && !src.includes('/api/placeholder'));
+    const clientImages = clients.map(client => client.logo).filter(src => src && !src.includes('/api/placeholder'));
+    const allImages = [...teamImages, ...clientImages];
+    
+    setTotalImages(allImages.length);
+    
+    if (allImages.length === 0) {
+      // No images to load
+      setLoading(false);
+      return;
+    }
+
+    // Preload all images
+    allImages.forEach(src => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        setImagesLoaded(prev => {
+          const newCount = prev + 1;
+          // When all images are loaded, set loading to false
+          if (newCount >= allImages.length) {
+            setTimeout(() => setLoading(false), 500); // Small delay for smoother transition
+          }
+          return newCount;
+        });
+      };
+      img.onerror = () => {
+        // Count error as "loaded" to prevent infinite loading
+        setImagesLoaded(prev => {
+          const newCount = prev + 1;
+          if (newCount >= allImages.length) {
+            setTimeout(() => setLoading(false), 500);
+          }
+          return newCount;
+        });
+      };
+    });
+  }, []);
+
+  // Loading screen component
+  const LoadingScreen = () => (
+    <div className="fixed inset-0 bg-gray-900 z-50 flex flex-col items-center justify-center">
+      <div className="w-20 h-20 mb-4">
+        <svg className="animate-spin w-full h-full text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+      </div>
+      <h2 className="text-2xl font-bold text-white mb-2">Loading Lex Innovations</h2>
+      <div className="w-64 bg-gray-700 rounded-full h-2.5 mb-1">
+        <div 
+          className="bg-blue-500 h-2.5 rounded-full transition-all duration-300" 
+          style={{ width: `${totalImages ? (imagesLoaded / totalImages) * 100 : 100}%` }}
+        ></div>
+      </div>
+      <p className="text-gray-400 text-sm">
+        {imagesLoaded} of {totalImages} assets loaded
+      </p>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
+      {loading && <LoadingScreen />}
+      
       <Navigation />
       {/* Hero Section */}
       <section className="relative py-20">
