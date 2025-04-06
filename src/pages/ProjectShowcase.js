@@ -4,21 +4,23 @@ import { ArrowRight, Github, ExternalLink, Code, Database, Cloud, Lock, Search, 
 const ProjectShowcase = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
+  // Updated filter labels
   const filters = [
     { id: 'all', label: 'All Projects' },
-    { id: 'web', label: 'Web Development' },
-    { id: 'ai', label: 'AI & ML' },
-    { id: 'cloud', label: 'Cloud Solutions' },
-    { id: 'security', label: 'Security' }
+    { id: 'ongoing', label: 'Ongoing' },      // Changed from 'web'
+    { id: 'handovered', label: 'Handovered' }, // Changed from 'ai'
+    { id: 'maintenance', label: 'Maintenance' }, // Changed from 'cloud'
+    { id: 'others', label: 'Others' }         // Changed from 'security'
   ];
 
+  // Update project categories to match new filter IDs
   const projects = [
     {
       id: 1,
       title: 'Shradda IVR System',
       description: 'Sri Lanka Mobitel ISP based Customized IVR System',
       image: 'https://pawsome-testing.sgp1.digitaloceanspaces.com/f52624b0-63f3-4c4f-95d3-534e2bc02c20-WhatsApp_Image_2025-01-05_at_22.47.44_427d31e1-removebg-preview.png',
-      category: ['web', 'IVR'],
+      category: ['ongoing', 'IVR'],  // Changed from 'web'
       tech: ['React', 'DigitalOrcen', 'nest js', 'Mysql', 'nginx'],
       features: [
         'Custom Audio track upload',
@@ -40,7 +42,7 @@ const ProjectShowcase = () => {
       title: 'PetDoc',
       description: 'Multivendor pet care marketplace with AI-driven recommendations',
       image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FScreenshot%202025-04-06%20163227.png?alt=media&token=10b05c29-7db6-46f8-ac50-d509ad026ad1',
-      category: ['security', 'cloud'],
+      category: ['others', 'maintenance'],  // Changed from 'security', 'cloud'
       tech: ['Go', 'Kubernetes', 'Azure', 'Hyperledger'],
       features: [
         'Zero-trust architecture',
@@ -64,7 +66,7 @@ const ProjectShowcase = () => {
       title: 'Soluzent LMS',
       description: 'Software as service made LMS for educational institutions',
       image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FScreenshot%202025-04-06%20163428.png?alt=media&token=e8319c8a-4e00-4e66-a830-b835a02d7189',
-      category: ['ai', 'cloud'],
+      category: ['handovered', 'maintenance'],  // Changed from 'ai', 'cloud'
       tech: ['Python', 'PyTorch', 'GCP', 'MongoDB'],
       features: [
         'Demand forecasting',
@@ -88,7 +90,7 @@ const ProjectShowcase = () => {
       title: 'Orimi Sasaki Nihon Gakuin',
       description: 'Custom tailor made Website to manage the school',
       image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FScreenshot%202025-04-06%20163645.png?alt=media&token=33259e2e-95c8-4f62-83d2-acb92c2cc7d7',
-      category: ['web', 'IVR'],
+      category: ['ongoing', 'IVR'],  // Changed from 'web'
       tech: ['React', 'DigitalOcean', 'Nest.js', 'MySQL', 'Nginx'],
       features: [
         'Custom Audio track upload',
@@ -110,7 +112,7 @@ const ProjectShowcase = () => {
       title: 'Gemify',
       description: 'Smart Gem Multivendor Marketplace',
       image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FScreenshot%202025-04-06%20163036.png?alt=media&token=8acbc3e5-78bc-488f-89db-546104703189',
-      category: ['web', 'ecommerce'],
+      category: ['ongoing', 'ecommerce'],  // Changed from 'web'
       tech: ['React', 'Tailwind CSS', 'Firebase'],
       features: [
         'Gem marketplace with filters',
@@ -133,7 +135,7 @@ const ProjectShowcase = () => {
       title: 'Fit Club',
       description: 'Gym Management System with virtual coaching',
       image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FScreenshot%202025-04-06%20162906.png?alt=media&token=716675d4-8809-4823-8f4a-9b83e40c8a94',
-      category: ['web', 'health'],
+      category: ['ongoing', 'health'],  // Changed from 'web'
       tech: ['React', 'Tailwind CSS', 'Node.js', 'Nest.js', 'PHP', 'Firebase'],
       features: [
         'Membership management',
@@ -158,7 +160,7 @@ const ProjectShowcase = () => {
       title: 'Recipe App',
       description: 'Social recipe sharing mobile application',
       image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FWhatsApp%20Image%202025-04-06%20at%2016.26.08_7c175608.jpg?alt=media&token=8ecad0ef-d043-4d55-865e-67c798d236ed',
-      category: ['mobile', 'food'],
+      category: ['handovered', 'food'],  // Changed from 'mobile'
       tech: ['Java', 'Gradle', 'XML', 'Firebase'],
       features: [
         'Recipe browsing',
@@ -182,7 +184,58 @@ const ProjectShowcase = () => {
       title: 'Car Care',
       description: 'Complete car service management application',
       image: '/api/placeholder/600/400',
-      category: ['software', 'automotive'],
+      category: ['others', 'automotive'],  // Changed from 'software'
+      tech: ['Java', 'Maven', 'MySQL'],
+      features: [
+        'Parts inventory',
+        'Vehicle repair tracking',
+        'Service scheduling',
+        'POS integration',
+        'Stock management',
+        'User management'
+      ],
+      results: {
+        efficiency: '+60%',
+        inventory: '1000+ parts'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    },
+    {
+      id: 9,
+      title: 'BypassLink',
+      description: 'BypassLink is a web application that allows users to bypass link shorteners',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FScreenshot%202025-04-06%20165747.png?alt=media&token=411f7eed-c03b-446b-afaf-25f9725dc627',
+      category: ['others', 'automotive'],  // Changed from 'software'
+      tech: ['Java', 'Maven', 'MySQL'],
+      features: [
+        'Parts inventory',
+        'Vehicle repair tracking',
+        'Service scheduling',
+        'POS integration',
+        'Stock management',
+        'User management'
+      ],
+      results: {
+        efficiency: '+60%',
+        inventory: '1000+ parts'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    }
+    ,
+    {
+      id: 9,
+      title: 'BypassLink AI Chat',
+      description: 'BypassLink is a web application that allows users to bypass link shorteners ai Chat bot',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2Fbypasslinkbot.png?alt=media&token=b2269390-fbfb-4645-ae68-951247ee5f1b',
+      category: ['others', 'automotive'],  // Changed from 'software'
       tech: ['Java', 'Maven', 'MySQL'],
       features: [
         'Parts inventory',
@@ -208,12 +261,13 @@ const ProjectShowcase = () => {
     ? projects 
     : projects.filter(project => project.category.includes(activeFilter));
 
+  // Update the CategoryIcon component to match new categories
   const CategoryIcon = ({ category }) => {
     switch(category) {
-      case 'web': return <Monitor className="w-5 h-5" />;
-      case 'ai': return <Database className="w-5 h-5" />;
-      case 'cloud': return <Cloud className="w-5 h-5" />;
-      case 'security': return <Lock className="w-5 h-5" />;
+      case 'ongoing': return <Monitor className="w-5 h-5" />;  // Was 'web'
+      case 'handovered': return <Database className="w-5 h-5" />;  // Was 'ai'
+      case 'maintenance': return <Cloud className="w-5 h-5" />;  // Was 'cloud'
+      case 'others': return <Lock className="w-5 h-5" />;  // Was 'security'
       default: return <Code className="w-5 h-5" />;
     }
   };
