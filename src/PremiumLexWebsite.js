@@ -187,7 +187,7 @@ const EnhancedWebsite = () => {
       image: "https://pawsome-testing.sgp1.digitaloceanspaces.com/f52624b0-63f3-4c4f-95d3-534e2bc02c20-WhatsApp_Image_2025-01-05_at_22.47.44_427d31e1-removebg-preview.png"
     },
     {
-      title: "Cloud Migration Project",
+      title: "Multivendor E-commerce Platform",
       description: "Successful migration of legacy systems to microservices",
       tech: ["React", "PM2", "DigitalOrcen", "Nest", "NGINX"],
       image: "https://pawsome-testing.sgp1.digitaloceanspaces.com/ad28dc95-76c0-4f87-9653-282ba749f11c-image-removebg-preview%20%282%29.png"
@@ -339,10 +339,12 @@ const EnhancedWebsite = () => {
  onClick={() => window.location.href = '#'}
  className="flex items-center gap-2 px-8 py-4 bg-transparent border border-blue-500/50 rounded-full hover:bg-blue-500/10 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
 >
+  <a href="/projects" className="text-blue-500/50 hover:text-blue-400 transition-colors">
  <span className="flex items-center gap-2">
-   See Projects (this feature is not available at the moment)
+   See Projects
    <ArrowRight className="w-4 h-4" />
  </span>
+  </a>
 </button>
    </div>
  </div>

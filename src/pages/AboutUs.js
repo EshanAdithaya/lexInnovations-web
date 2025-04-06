@@ -5,39 +5,38 @@ import Navigation from '../components/Header';
 
 const AboutUs = () => {
   const stats = [
-    { value: '15+', label: 'Years Experience' },
-    { value: '200+', label: 'Projects Delivered' },
-    { value: '50+', label: 'Enterprise Clients' },
-    { value: '4', label: 'Global Offices' }
+    { value: '2+', label: 'Years Experience' },
+    { value: '25+', label: 'Projects Delivered' },
+    { value: '10+', label: 'Enterprise Clients' },
   ];
 
   const teamMembers = [
     {
-      name: 'David Chen',
+      name: 'Thisiitha Kavinda',
       role: 'CEO & Lead Architect',
-      image: '/api/placeholder/200/200',
-      bio: '15+ years in enterprise software architecture. Previously at Microsoft and Amazon.',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2Fkavindaaiya.jpg?alt=media&token=23dc1eab-401a-4b03-b5d2-e13788c6906f',
+      bio: '5+ years in enterprise software architecture. Formerly at Tech Innovations Inc.',
       social: {
         linkedin: '#',
         github: '#',
-        email: 'david@lexinnovation.com'
+        email: 'thisitha@lexinnovation.com'
       }
     },
     {
-      name: 'Sarah Johnson',
+      name: 'Eshan Gunathilaka',
       role: 'CTO',
-      image: '/api/placeholder/200/200',
-      bio: 'ML/AI expert with PhD in Computer Science. Led AI initiatives at Google.',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FWhatsApp%20Image%202024-12-01%20at%2014.56.52_dbef8cbccrop.jpg?alt=media&token=05e11108-e783-4ecd-a3be-d2a9afb9b1ba',
+      bio: 'Cloud and DevOps Enginner. 3+ years in cloud solutions. Fullstack Developer',
       social: {
         linkedin: '#',
         github: '#',
-        email: 'sarah@lexinnovation.com'
+        email: 'eshan@lexinnovation.com'
       }
     },
     {
-      name: 'Michael Zhang',
-      role: 'Head of Cloud Infrastructure',
-      image: '/api/placeholder/200/200',
+      name: 'Sithija kaushalya',
+      role: 'Full stack Developer',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2Fsijja.png?alt=media&token=993bf9fc-48a5-4495-b97c-4592716fda53',
       bio: 'Cloud architecture specialist. AWS Certified Solutions Architect.',
       social: {
         linkedin: '#',
@@ -46,21 +45,57 @@ const AboutUs = () => {
       }
     },
     {
-      name: 'Emma Wilson',
+      name: 'Dilmith Weerasinghe',
+      role: 'Frontend Developer',
+      image: '/api/placeholder/200/200',
+      bio: 'UX/UI expert with focus on enterprise software design.',
+      social: {
+        linkedin: '#',
+        github: '#',
+        email: 'dilmith@lexinnovation.com'
+      }
+    }
+    ,
+    {
+      name: 'Vishva Kulathunga',
       role: 'Lead Product Designer',
       image: '/api/placeholder/200/200',
       bio: 'UX/UI expert with focus on enterprise software design.',
       social: {
         linkedin: '#',
         github: '#',
-        email: 'emma@lexinnovation.com'
+        email: 'vishva@lexinnovation.com'
+      }
+    }
+    ,
+    {
+      name: 'Darshani Rengaraj',
+      role: 'Lead Product Designer',
+      image: '/api/placeholder/200/200',
+      bio: 'UX/UI expert with focus on enterprise software design.',
+      social: {
+        linkedin: '#',
+        github: '#',
+        email: 'darshani@lexinnovation.com'
+      }
+    }
+    ,
+    {
+      name: 'Yasindu Nimsara',
+      role: 'Devops Engineer',
+      image: 'https://avatars.githubusercontent.com/u/87377992?v=4',
+      bio: 'DevOps Engineer with 4+ years of experience in cloud infrastructure includeing gcp, Aws and Azure.',
+      social: {
+        linkedin: '#',
+        github: '#',
+        email: 'yasindu@lexinnovation.com'
       }
     }
   ];
 
   const partners = [
     {
-      name: 'Microsoft',
+      name: 'Soluzent',
       category: 'Cloud Partner',
       logo: '/api/placeholder/120/60',
       description: 'Azure Cloud Services Partner',
@@ -91,9 +126,9 @@ const AboutUs = () => {
 
   const clients = [
     {
-      name: 'Global Bank Corp',
-      industry: 'Finance',
-      logo: '/api/placeholder/120/60',
+      name: 'PetDoc',
+      industry: 'Retail',
+      logo: 'https://pawsome-testing.sgp1.digitaloceanspaces.com/ad28dc95-76c0-4f87-9653-282ba749f11c-image-removebg-preview%20%282%29.png',
       project: 'Digital Banking Platform',
       testimonial: 'Transformed our digital banking infrastructure with cutting-edge security.',
       results: '+45% efficiency'
@@ -209,7 +244,7 @@ const AboutUs = () => {
       </section>
 
       {/* Partners Section */}
-      <section className="py-20">
+      {/* <section className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             Strategic Partners
@@ -233,7 +268,7 @@ const AboutUs = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Clients Section */}
       <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
@@ -264,7 +299,7 @@ const AboutUs = () => {
       </section>
 
       {/* Global Presence */}
-      <section className="py-20">
+      {/* <section className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             Global Presence
@@ -282,7 +317,7 @@ const AboutUs = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600/20 to-purple-600/20">

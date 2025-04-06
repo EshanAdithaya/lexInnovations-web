@@ -61,20 +61,20 @@ const ContactPage = () => {
     {
       icon: <Phone className="w-6 h-6" />,
       title: 'Phone',
-      details: ['+94 71 234 5678', '+94 11 234 5678'],
-      action: 'tel:+94712345678'
+      details: ['+94 71 335 8701', '+94 76 605 7574'],
+      action: 'tel:94713358701'
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email',
-      details: ['info@lexinnovation.com', 'support@lexinnovation.com'],
-      action: 'mailto:info@lexinnovation.com'
+      details: ['thisitha@lexinnovation.com', 'eshan@lexinnovation.com'],
+      action: 'mailto:thisitha@lexinnovation.com'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: 'Location',
-      details: ['123 Innovation Drive', 'Colombo 03, Sri Lanka'],
-      action: 'https://maps.google.com'
+      details: ['73/L Temple Road, Ganemulla'],
+      // action: 'https://maps.google.com'
     },
     {
       icon: <Clock className="w-6 h-6" />,
@@ -134,21 +134,21 @@ const ContactPage = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
+      {/* <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="bg-gray-800/50 rounded-xl p-8 border border-gray-700">
               <h2 className="text-2xl font-bold mb-6">Visit Our Office</h2>
               <div className="aspect-video w-full bg-gray-900 rounded-lg">
                 {/* Replace with actual map implementation */}
-                <div className="w-full h-full flex items-center justify-center text-gray-400">
+                {/* <div className="w-full h-full flex items-center justify-center text-gray-400">
                   Interactive Map Placeholder
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section>  */}
 
       <Footer />
     </div>

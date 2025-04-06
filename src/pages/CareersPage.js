@@ -1,158 +1,89 @@
 import React from 'react';
-import { Users, Code, Laptop, Globe, Coffee, Book, Heart, Zap } from 'lucide-react';
+import { Calendar, Users, Briefcase, Mail, Bell } from 'lucide-react';
 import Navigation from '../components/Header';
 import Footer from '../components/Footer';
 
 const CareersPage = () => {
+  // Keep your data structures for when the page fully launches
   const openPositions = [
-    {
-      title: 'Senior Full Stack Developer',
-      department: 'Engineering',
-      location: 'Remote / Sri Lanka',
-      type: 'Full-time',
-      description: 'Looking for an experienced full-stack developer to join our core product team.',
-      requirements: [
-        'Experience with React, Node.js, and modern web technologies',
-        'Strong understanding of software architecture and design patterns',
-        '5+ years of professional development experience'
-      ]
-    },
-    {
-      title: 'UI/UX Designer',
-      department: 'Design',
-      location: 'Remote / Sri Lanka',
-      type: 'Full-time',
-      description: 'Seeking a creative designer to shape the future of our product interfaces.',
-      requirements: [
-        'Strong portfolio demonstrating web and mobile design',
-        'Experience with Figma and modern design tools',
-        '3+ years of product design experience'
-      ]
-    },
-    {
-      title: 'DevOps Engineer',
-      department: 'Infrastructure',
-      location: 'Remote / Sri Lanka',
-      type: 'Full-time',
-      description: 'Join us to build and maintain our cloud infrastructure and deployment pipelines.',
-      requirements: [
-        'Experience with AWS, Docker, and Kubernetes',
-        'Strong knowledge of CI/CD practices',
-        'Background in automation and infrastructure as code'
-      ]
-    }
+    // Your existing positions...
   ];
 
   const benefits = [
-    {
-      icon: <Laptop className="w-8 h-8" />,
-      title: 'Remote First',
-      description: 'Work from anywhere in the world, with flexible hours'
-    },
-    {
-      icon: <Coffee className="w-8 h-8" />,
-      title: 'Work-Life Balance',
-      description: 'Flexible time off and respect for personal time'
-    },
-    {
-      icon: <Book className="w-8 h-8" />,
-      title: 'Learning Budget',
-      description: 'Annual budget for courses, books, and conferences'
-    },
-    {
-      icon: <Heart className="w-8 h-8" />,
-      title: 'Health Benefits',
-      description: 'Comprehensive health insurance coverage'
-    },
-    {
-      icon: <Zap className="w-8 h-8" />,
-      title: 'Latest Equipment',
-      description: 'High-end hardware and software setup'
-    },
-    {
-      icon: <Globe className="w-8 h-8" />,
-      title: 'Team Retreats',
-      description: 'Annual company retreats for team bonding'
-    }
+    // Your existing benefits...
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20">
+      {/* Coming Soon Hero Section */}
+      <section className="relative pt-32 pb-20 flex items-center justify-center min-h-[70vh]">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Join Our Team of
+              Careers
               <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-                Innovators
+                Coming Soon
               </span>
             </h1>
-            <p className="text-xl text-gray-400 mb-8">
-              Help us build the future of technology. We're always looking for talented individuals to join our growing team.
+            <p className="text-xl text-gray-400 mb-12">
+              We're building an amazing team to shape the future of technology.
+              Our careers page is under construction, but we're always looking for talented individuals.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Join Us?</h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="p-6 bg-gray-800/50 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300">
-                <div className="text-blue-400 mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
-                <p className="text-gray-400">{benefit.description}</p>
+            
+            <div className="flex flex-wrap items-center justify-center gap-6 mb-12">
+              <div className="flex items-center">
+                <Calendar className="w-6 h-6 text-blue-400 mr-2" />
+                <span className="text-gray-300">Launching April 2025</span>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Open Positions Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Open Positions</h2>
-
-          <div className="space-y-6 max-w-4xl mx-auto">
-            {openPositions.map((position, index) => (
-              <div 
-                key={index}
-                className="group bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-blue-500/50 transition-all duration-300"
-              >
-                <div className="flex flex-col md:flex-row justify-between md:items-center mb-4">
+              <div className="flex items-center">
+                <Briefcase className="w-6 h-6 text-blue-400 mr-2" />
+                <span className="text-gray-300">Multiple positions opening soon</span>
+              </div>
+              <div className="flex items-center">
+                <Users className="w-6 h-6 text-blue-400 mr-2" />
+                <span className="text-gray-300">Remote-first culture</span>
+              </div>
+            </div>
+            
+            <div className="max-w-md mx-auto">
+              <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
+                <h3 className="text-xl font-bold mb-4 flex items-center justify-center">
+                  <Bell className="w-5 h-5 mr-2 text-blue-400" />
+                  Get notified when we launch
+                </h3>
+                <form className="space-y-4">
                   <div>
-                    <h3 className="text-xl font-bold mb-2">{position.title}</h3>
-                    <div className="flex flex-wrap gap-2 text-sm">
-                      <span className="text-blue-400">{position.department}</span>
-                      <span className="text-gray-400">•</span>
-                      <span className="text-gray-400">{position.location}</span>
-                      <span className="text-gray-400">•</span>
-                      <span className="text-gray-400">{position.type}</span>
-                    </div>
+                    <input 
+                      type="email" 
+                      placeholder="Your email address" 
+                      className="w-full px-4 py-3 bg-gray-700/50 rounded-lg border border-gray-600 focus:border-blue-500 focus:ring-blue-500 focus:outline-none"
+                      required
+                    />
                   </div>
-                  <button className="mt-4 md:mt-0 px-6 py-2 bg-blue-600 rounded-full hover:bg-blue-700 transition-colors">
-                    Apply Now
+                  <button 
+                    type="submit"
+                    className="w-full px-6 py-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center font-medium"
+                  >
+                    <Mail className="w-5 h-5 mr-2" />
+                    Notify Me
                   </button>
-                </div>
-
-                <p className="text-gray-400 mb-4">{position.description}</p>
-
-                <div className="space-y-2">
-                  {position.requirements.map((req, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-sm text-gray-400">
-                      <div className="w-1 h-1 bg-blue-400 rounded-full mt-2"></div>
-                      {req}
-                    </div>
-                  ))}
-                </div>
+                </form>
+                <p className="text-xs text-gray-400 mt-4 text-center">
+                  We'll only use your email to notify you about career opportunities.
+                </p>
               </div>
-            ))}
+            </div>
+
+            <div className="mt-12 pt-8 border-t border-gray-800">
+              <p className="text-gray-400">
+                Interested in joining our team before the official launch? 
+                <a href="mailto:careers@lexinnovations.com" className="text-blue-400 ml-1 hover:underline">
+                  Email us your resume
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </section>
