@@ -183,7 +183,7 @@ const ProjectShowcase = () => {
       id: 8,
       title: 'Car Care',
       description: 'Complete car service management application',
-      image: '/api/placeholder/600/400',
+      image: 'https://pawsome-testing.sgp1.digitaloceanspaces.com/ac121b9e-5ffb-45d3-b26b-0a83cd804ef7-lex__1_-removebg-preview.png',
       category: ['others', 'automotive'],  // Changed from 'software'
       tech: ['Java', 'Maven', 'MySQL'],
       features: [
@@ -248,6 +248,272 @@ const ProjectShowcase = () => {
       results: {
         efficiency: '+60%',
         inventory: '1000+ parts'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    },
+    {
+      id: 10,
+      title: 'MateCeylone',
+      description: 'Coconut based product selling website',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2Fmateceylone.png?alt=media&token=21637f2a-aa11-4da1-abbe-91e20dc48531',
+      category: ['others', 'automotive'],  // Changed from 'software'
+      tech: ['Java', 'Maven', 'MySQL'],
+      features: [
+        'Parts inventory',
+        'Vehicle repair tracking',
+        'Service scheduling',
+        'POS integration',
+        'Stock management',
+        'User management'
+      ],
+      results: {
+        efficiency: '+60%',
+        inventory: '1000+ parts'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    },
+    {
+      id: 11,
+      title: 'Voice AI',
+      description: 'Voice AI is a web application that allows users to communicate voaice commands amnmd designed for reciptionists',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FvoiceAssistance.png?alt=media&token=62b130fa-77f4-42aa-9f0a-2d42a96286c8',
+      category: ['others', 'automotive'],  // Changed from 'software'
+      tech: ['Java', 'Maven', 'MySQL'],
+      features: [
+        'Parts inventory',
+        'Vehicle repair tracking',
+        'Service scheduling',
+        'POS integration',
+        'Stock management',
+        'User management'
+      ],
+      results: {
+        efficiency: '+60%',
+        inventory: '1000+ parts'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    },
+    {
+      id: 12,
+      title: "God's Eye",
+      description: 'Smart Emergency Response System for Drivers',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FGODSEye.jpg?alt=media&token=1071abde-a31b-44bf-956c-a2e98a8f64a6',
+      category: ['ongoing', 'automotive'],
+      tech: ['React Native', 'IoT', 'Firebase', 'Node.js'],
+      features: [
+        'Emergency detection system',
+        'Automatic alert to emergency services',
+        'Real-time location tracking',
+        'Driver health monitoring',
+        'Accident prevention analytics'
+      ],
+      results: {
+        efficiency: '+80%',
+        response: '-45% time'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    },
+    {
+      id: 13,
+      title: 'VTV Mobile',
+      description: 'Official App for VTV Mobile Network',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FVTV.jpg?alt=media&token=d3b13ff8-9e80-4431-94f5-a7f56a34efdc',
+      category: ['handovered', 'mobile'],
+      tech: ['Flutter', 'Dart', 'Firebase', 'RESTful APIs'],
+      features: [
+        'Real-time account management',
+        'Usage statistics tracking',
+        'Easy top-up options',
+        'Exclusive offers and promotions',
+        'Payment history'
+      ],
+      results: {
+        users: '50K+',
+        ratings: '4.7/5'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    },
+    {
+      id: 14,
+      title: 'VNN 24',
+      description: 'Live News Streaming Platform for VNN 24 Sri Lanka',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FVNN.jpg?alt=media&token=0b8d0fe0-cdb7-437c-954a-11b035b96f00',
+      category: ['handovered', 'media'],
+      tech: ['React Native', 'Node.js', 'AWS MediaLive', 'MongoDB'],
+      features: [
+        'Live news streaming',
+        'Breaking news notifications',
+        'Video-on-demand archive',
+        'Low-latency playback',
+        'Offline viewing options'
+      ],
+      results: {
+        views: '100K+/day',
+        retention: '+65%'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    },
+    {
+      id: 15,
+      title: 'Salt n Pepper',
+      description: 'Dating App for 50+ Singles',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FsltNpper.jpg?alt=media&token=5d85b328-7da3-4fdc-96fb-493791d97a4f',
+      category: ['ongoing', 'social'],
+      tech: ['React Native', 'Firebase', 'Node.js', 'Express'],
+      features: [
+        'Age-appropriate matching algorithm',
+        'Simple swipe interface',
+        'Enhanced privacy controls',
+        'Interest-based connections',
+        'Video chat integration'
+      ],
+      results: {
+        matches: '5K+/week',
+        engagement: '+40%'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    },
+    {
+      id: 16,
+      title: 'Nearby Chat',
+      description: 'Bluetooth-Based Local Chat App',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FNchat.jpg?alt=media&token=3924d518-17a3-4347-89ab-fc13bad2b8ad',
+      category: ['handovered', 'communication'],
+      tech: ['Android', 'Java', 'Bluetooth API', 'Nearby Share'],
+      features: [
+        'No internet required',
+        'Proximity-based chat',
+        'User discovery',
+        'Message encryption',
+        'Group chat capabilities'
+      ],
+      results: {
+        distance: 'Up to 100m',
+        messages: '10K+/day'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    },
+    {
+      id: 17,
+      title: 'AR Furniture App',
+      description: 'Augmented Reality E-Commerce for Furniture Stores',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FARApp.jpg?alt=media&token=92e1339b-5d2a-40c2-9bef-549df2612ca2',
+      category: ['maintenance', 'ecommerce'],
+      tech: ['ARKit', 'ARCore', 'Unity', 'React Native'],
+      features: [
+        'Real-space furniture visualization',
+        'Accurate size scaling',
+        'Product catalog integration',
+        'In-app purchasing',
+        'Room scanning technology'
+      ],
+      results: {
+        conversion: '+35%',
+        returns: '-25%'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    },
+    {
+      id: 18,
+      title: 'Social Media SaaS',
+      description: 'AI-Powered Social Media Management Platform',
+      image: 'https://pawsome-testing.sgp1.digitaloceanspaces.com/ac121b9e-5ffb-45d3-b26b-0a83cd804ef7-lex__1_-removebg-preview.png',
+      category: ['ongoing', 'saas'],
+      tech: ['React', 'Node.js', 'MongoDB', 'TensorFlow', 'AWS'],
+      features: [
+        'Multi-platform management',
+        'Automated content scheduling',
+        'AI content suggestions',
+        'Analytics dashboard',
+        'Team collaboration tools'
+      ],
+      results: {
+        efficiency: '+60%',
+        engagement: '+45%'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    },
+    {
+      id: 19,
+      title: 'SLIIT Open Day Management System',
+      description: 'Event Management System for Open Day Registrations (Phase 1)',
+      image: 'https://pawsome-testing.sgp1.digitaloceanspaces.com/ac121b9e-5ffb-45d3-b26b-0a83cd804ef7-lex__1_-removebg-preview.png',
+      category: ['handovered', 'education'],
+      tech: ['React', 'Express', 'MySQL', 'Docker'],
+      features: [
+        'Attendee registration',
+        'QR code check-in',
+        'Real-time attendance tracking',
+        'Data analytics',
+        'Event scheduling'
+      ],
+      results: {
+        registrations: '1200+',
+        processing: '-65% time'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    }
+    ,
+    {
+      id: 20,
+      title: 'Mhchem',
+      description: 'LMS and Cooperate website for Mhchem',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2Fmhchem.png?alt=media&token=445f0907-f94a-4af3-867b-3d0c800841b0',
+      category: ['handovered', 'education'],
+      tech: ['React', 'Express', 'MySQL', 'Docker'],
+      features: [
+        'Attendee registration',
+        'Real-time attendance tracking',
+        'Data analytics',
+        'Event scheduling'
+      ],
+      results: {
+        registrations: '1200+',
+        processing: '-65% time'
       },
       links: {
         case_study: '#',
