@@ -27,21 +27,19 @@ const ProjectShowcase = () => {
         'Advanced analytics dashboard'
       ],
       results: {
-        // efficiency: '+45%',
-        // cost: '-30%',
-        // users: '10,000+'
+        efficiency: '+45%'
       },
       links: {
-        // case_study: '#',
-        // github: '#',
-        // live: '#'
+        case_study: '#',
+        github: '#',
+        live: '#'
       }
     },
     {
       id: 2,
-      title: 'Secure Banking Platform',
-      description: 'Zero-trust banking infrastructure with blockchain integration',
-      image: '/api/placeholder/600/400',
+      title: 'PetDoc',
+      description: 'Multivendor pet care marketplace with AI-driven recommendations',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FScreenshot%202025-04-06%20163227.png?alt=media&token=10b05c29-7db6-46f8-ac50-d509ad026ad1',
       category: ['security', 'cloud'],
       tech: ['Go', 'Kubernetes', 'Azure', 'Hyperledger'],
       features: [
@@ -63,9 +61,9 @@ const ProjectShowcase = () => {
     },
     {
       id: 3,
-      title: 'AI-Powered Supply Chain',
-      description: 'Predictive supply chain optimization using advanced ML models',
-      image: '/api/placeholder/600/400',
+      title: 'Soluzent LMS',
+      description: 'Software as service made LMS for educational institutions',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FScreenshot%202025-04-06%20163428.png?alt=media&token=e8319c8a-4e00-4e66-a830-b835a02d7189',
       category: ['ai', 'cloud'],
       tech: ['Python', 'PyTorch', 'GCP', 'MongoDB'],
       features: [
@@ -78,6 +76,125 @@ const ProjectShowcase = () => {
         accuracy: '94%',
         savings: '$2.5M',
         efficiency: '+60%'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    },
+    {
+      id: 4,
+      title: 'Orimi Sasaki Nihon Gakuin',
+      description: 'Custom tailor made Website to manage the school',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FScreenshot%202025-04-06%20163645.png?alt=media&token=33259e2e-95c8-4f62-83d2-acb92c2cc7d7',
+      category: ['web', 'IVR'],
+      tech: ['React', 'DigitalOcean', 'Nest.js', 'MySQL', 'Nginx'],
+      features: [
+        'Custom Audio track upload',
+        'Payment system for GSM call subscription',
+        'Admin Dashboard for schedule audios',
+        'Advanced analytics dashboard'
+      ],
+      results: {
+        efficiency: '+45%'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    },
+    {
+      id: 5,
+      title: 'Gemify',
+      description: 'Smart Gem Multivendor Marketplace',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FScreenshot%202025-04-06%20163036.png?alt=media&token=8acbc3e5-78bc-488f-89db-546104703189',
+      category: ['web', 'ecommerce'],
+      tech: ['React', 'Tailwind CSS', 'Firebase'],
+      features: [
+        'Gem marketplace with filters',
+        'Auction system',
+        'Multivendor configuration',
+        'Admin dashboard'
+      ],
+      results: {
+        vendors: '20+',
+        listings: '500+'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    },
+    {
+      id: 6,
+      title: 'Fit Club',
+      description: 'Gym Management System with virtual coaching',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FScreenshot%202025-04-06%20162906.png?alt=media&token=716675d4-8809-4823-8f4a-9b83e40c8a94',
+      category: ['web', 'health'],
+      tech: ['React', 'Tailwind CSS', 'Node.js', 'Nest.js', 'PHP', 'Firebase'],
+      features: [
+        'Membership management',
+        'Online scheduling',
+        'Virtual coaching',
+        'Meal plan customization',
+        'Attendance tracking',
+        'Product sales'
+      ],
+      results: {
+        users: '1000+',
+        efficiency: '+50%'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    },
+    {
+      id: 7,
+      title: 'Recipe App',
+      description: 'Social recipe sharing mobile application',
+      image: 'https://firebasestorage.googleapis.com/v0/b/crypto-app-aebfd.appspot.com/o/profile_images%2FWhatsApp%20Image%202025-04-06%20at%2016.26.08_7c175608.jpg?alt=media&token=8ecad0ef-d043-4d55-865e-67c798d236ed',
+      category: ['mobile', 'food'],
+      tech: ['Java', 'Gradle', 'XML', 'Firebase'],
+      features: [
+        'Recipe browsing',
+        'User contributions',
+        'Google login integration',
+        'Admin management',
+        'Push notifications'
+      ],
+      results: {
+        recipes: '200+',
+        users: '300+'
+      },
+      links: {
+        case_study: '#',
+        github: '#',
+        live: '#'
+      }
+    },
+    {
+      id: 8,
+      title: 'Car Care',
+      description: 'Complete car service management application',
+      image: '/api/placeholder/600/400',
+      category: ['software', 'automotive'],
+      tech: ['Java', 'Maven', 'MySQL'],
+      features: [
+        'Parts inventory',
+        'Vehicle repair tracking',
+        'Service scheduling',
+        'POS integration',
+        'Stock management',
+        'User management'
+      ],
+      results: {
+        efficiency: '+60%',
+        inventory: '1000+ parts'
       },
       links: {
         case_study: '#',
