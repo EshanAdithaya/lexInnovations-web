@@ -3,6 +3,7 @@ import { Menu, X, ArrowRight, ArrowUp, Phone, Mail, MapPin, Globe, Shield, Cpu,
   Check, Users, Code, Zap, ChevronDown, Github, Linkedin, Twitter } from 'lucide-react';
 import Footer from './components/Footer';
 import Navigation from './components/Header';
+import NetworkAnimation from './NetworkAnimation';
 
 // Internal Alert Component
 const Alert = ({ children, className }) => {
@@ -210,45 +211,48 @@ const EnhancedWebsite = () => {
         </button>
       )}
 
-      {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center pt-20" aria-label="Welcome">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 to-purple-900/50" />
-          <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black to-transparent" />
-        </div>
+{/* Hero Section with Overlay Animation */}
+<section id="home" className="relative min-h-screen flex items-center pt-20" aria-label="Welcome">
+  <div className="absolute inset-0">
+    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 to-purple-900/50" />
+    <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black to-transparent" />
+    
+    {/* Network animation as background element */}
+    <div className="absolute right-0 top-0 w-2/3 h-full opacity-60 pointer-events-none">
+      <NetworkAnimation />
+    </div>
+  </div>
 
-        <div className="container mx-auto px-6 relative">
-          <div className="max-w-4xl space-y-8 animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-                Building Tomorrow's
-              </span>
-              <br />
-              Software Today
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-gray-300 max-w-2xl">
-              Enterprise-grade software solutions that drive innovation and accelerate digital transformation
-            </p>
+  <div className="container mx-auto px-6 relative">
+    <div className="max-w-4xl space-y-8 animate-fade-in">
+      <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+          Building Tomorrow's
+        </span>
+        <br />
+        Software Today
+      </h1>
+      
+      <p className="text-xl md:text-2xl text-gray-300 max-w-2xl">
+        Enterprise-grade software solutions that drive innovation and accelerate digital transformation
+      </p>
 
-            <div className="flex flex-wrap gap-4">
-              <button className="group relative px-8 py-4 bg-blue-600 rounded-full overflow-hidden focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <span className="relative z-10 flex items-center gap-2">
-                  Schedule Consultation
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
-              </button>
+      <div className="flex flex-wrap gap-4">
+        <button className="group relative px-8 py-4 bg-blue-600 rounded-full overflow-hidden focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <span className="relative z-10 flex items-center gap-2">
+            Schedule Consultation
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </span>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+        </button>
 
-              <button className="px-8 py-4 border border-white/20 rounded-full hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">
-                View Case Studies
-              </button>
-
-              
-            </div>
-          </div>
-        </div>
-      </section>
+        <button className="px-8 py-4 border border-white/20 rounded-full hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">
+          View Case Studies
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Solutions Section */}
       <section id="solutions" className="py-32 relative" aria-label="Our Solutions">
