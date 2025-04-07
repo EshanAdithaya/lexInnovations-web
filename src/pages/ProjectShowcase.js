@@ -581,7 +581,7 @@ const ProjectShowcase = () => {
                   alt={project.title}
                   className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent" />
+                <div className="absolute inset-0 " />
               </div>
 
               {/* Project Content */}
